@@ -1676,7 +1676,8 @@ public class Interpreter {
     public static RuleSet loadRules(String f) {
 
         if (f.indexOf(File.separator.toString(),2) < 0)
-            f = System.getProperty("user.home") + "/workspace/sumo/WordNetMappings" + File.separator + f;
+            f = System.getenv("ONTOLOGYPORTAL_GIT") + File.separator +
+                    "sumo" + File.separator + "WordNetMappings" + File.separator + f;
         try {
             RuleSet rsin = RuleSet.readFile(f);
             System.out.println("INFO in Interpreter.loadRules(): " +
